@@ -1,0 +1,5 @@
+- so do html 
+- create two divs , bullet points in each centered one to , one do 
+- inside use useState to dynmaically add to , do list items
+- create a history to go back 
+- thats really it 
