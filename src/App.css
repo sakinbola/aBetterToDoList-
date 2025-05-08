@@ -25,10 +25,16 @@ h1 {
     font-size:16px;
 }
 
+.container .container2 {
+    display:flex;
+    flex-direction: column;
+    gap:16px;
+}
+
 .toElements {
     flex:1;
     /* as elements inside will be dynmaic let them grow accordingly */
-    background-color: red;
+    background-color: lightgoldenrodyellow;
     border: 1px solid black;
     border-radius: 4px;
     padding:16px;
@@ -44,7 +50,7 @@ h1 {
 .doneElements {
     flex:1;
     /* as elements inside will be dynmaic let them grow accordingly */
-    background-color: blue;
+    background-color: lightblue;
     border: 1px solid black;
     border-radius: 4px;
     padding:16px;
@@ -70,5 +76,13 @@ h1 {
     padding: 8px 0px;
     border-bottom: 1px solid bisque;
     
+}
+
+.tolielement {
+
+}
+
+.dolielement {
+
 }
 

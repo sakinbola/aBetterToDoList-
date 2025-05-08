@@ -3,3 +3,14 @@
 - inside use useState to dynmaically add to , do list items
 - create a history to go back 
 - thats really it 
+
+functions i need in app 
+
+list function for creating the dynamic list 
+delete function for delete elements from both lists , button for that 
+add function for adding elements to both list , input field
+function for completetion button when a to element is completed and to add element to done
+function app/board to take in everything and final html , master function will be exported 
+history will be applied in this master funcitons
+
+learn how to save so its continously useful 
