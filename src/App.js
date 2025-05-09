@@ -2,7 +2,25 @@ import {useState} from 'react';
 import './app.css';
 
 // li element
-function List({description , id , typeofelement , onDelete}) {
+function List({description , id , typeofelement , onDone}) {
+  const class_name = typeofelement
+  // either tolielement or dolielement
+  // if (typeofelement === "to") {
+  //   class_name = "tolistelement";
+  // }
+  // else {
+  //   class_name = "donelistlement";
+  // }
+
+  return (
+    <div id={"task-container-${id}"}> 
+      <li className = {class_name} > {description} </li>
+      <button onClick = {() => onDone(id,description)} className = "delete_button" > Deletion Button </button>
+    </div>
+  );
+}
+
+function doneList ({description,id,typeofelement,onDelete}) {
   const class_name = typeofelement
   // either tolielement or dolielement
   // if (typeofelement === "to") {
@@ -31,10 +49,10 @@ function List({description , id , typeofelement , onDelete}) {
 //   List(description, "tolielement")
 // }
 
-
 function App() {
 const [tasks,setTasks] = useState([]);
 const [newTask, setNewTask] = useState('');
+const [done,setdoneTasks] = useState([]);
 // const [deletion, setDeletion] = useState('');
 const [history, setHistory] =  useState([]);
 
@@ -67,6 +85,10 @@ const DeleteTask =  (idToDelete) => {
   // iterates over each task if its not equal to id then include if its removes 
 
 }
+
+const DoneTask = (idtoMove) => {
+  setdoneTasks = ([...tasks, {id:idtoMove,}])
+}
 const historyTask = () => {
 
 }
@@ -95,7 +117,7 @@ const InputChange = (event) => {
                 creates new arr based on the result of the function your provide  */}
                 {/* => arrow functions , key must be provided when using map*/}
                 {tasks.map((task) => (
-                  <List key={task.id} description={task.text} id={task.id} typeofelement={task.type} onDelete={DeleteTask}/>
+                  <List key={task.id} description={task.text} id={task.id} typeofelement={task.type} onDelete={DoneTask}/>
                   // key used by react to identify elements in a list 
                   // so it can efficently update dom 
                   // update task 
@@ -105,9 +127,10 @@ const InputChange = (event) => {
             <div className ="doneElements">
                 <h2> Do Elements </h2>
                 <ul>
-                  <li> Example 1</li>
-                  <li> Example 2</li>
-                  <li> Example 3</li>
+                  {done.map((done) => (
+                    <doneList key={done.id} description = {} id={done.id} typeofelement = {done.type} onDelete={DeleteTask}/>
+                  ))}
+
                 </ul>
             </div>
         </div>
